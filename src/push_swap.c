@@ -6,23 +6,24 @@
 /*   By: jharras <jharras@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 13:37:29 by jharras           #+#    #+#             */
-/*   Updated: 2022/02/09 15:30:05 by jharras          ###   ########.fr       */
+/*   Updated: 2022/02/10 14:06:37 by jharras          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// static void	print_stack(t_array *stack)
-// {
-// 	int	i;
+static void	print_stack(t_array *stack)
+{
+	int	i;
 
-// 	i = 0;
-// 	while (i < stack->size_a)
-// 	{
-// 		printf("%d\n", stack->a[i]);
-// 		i++;
-// 	}
-// }
+	i = 0;
+	while (i < stack->size_a || i < stack->size_b)
+	{
+		printf("%d			%d\n", stack->a[i], stack->b[i]);
+		i++;
+	}
+	printf("\na			b\n");
+}
 
 static t_array	*init_array(t_array *stack, int count)
 {
@@ -61,9 +62,11 @@ int	main(int argc, char **argv)
 	stack = NULL;
 	validate_arg(argc, argv);
 	stack = fill_array(argc, stack, argv);
-	// print_stack(stack);
+	print_stack(stack);
 	sorting(stack);
-	// printf("--------------------------------------------\n");
-	// print_stack(stack);
+	printf("--------------------------------------------\n");
+	print_stack(stack);
+	printf("size a- %d\n", stack->size_a);
+	printf("size b- %d\n", stack->size_b);
 	return (0);
 }
