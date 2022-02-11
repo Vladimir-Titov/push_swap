@@ -6,67 +6,69 @@
 /*   By: jharras <jharras@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 13:37:29 by jharras           #+#    #+#             */
-/*   Updated: 2022/02/10 14:06:37 by jharras          ###   ########.fr       */
+/*   Updated: 2022/02/11 17:08:38 by jharras          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	print_stack(t_array *stack)
+static void	print_stack(t_stacks *stacks)
 {
 	int	i;
 
 	i = 0;
-	while (i < stack->size_a || i < stack->size_b)
+	while (i < stacks->a->size || i < stacks->b->size)
 	{
-		printf("%d			%d\n", stack->a[i], stack->b[i]);
+		printf("%d			%d\n", stacks->a->arr[i], stacks->b->arr[i]);
 		i++;
 	}
 	printf("\na			b\n");
 }
 
-static t_array	*init_array(t_array *stack, int count)
+static t_stacks	*init_array(t_stacks *stacks, int count)
 {
-	stack = malloc(sizeof(stack));
-	if (!stack)
+	stacks = malloc(sizeof(stacks));
+	if (!stacks)
 		error_msg_and_exit();
-	stack->a = malloc(sizeof(int *) * count);
-	stack->b = malloc(sizeof(int *) * count);
-	if (!stack->a || !stack->b)
+	stacks->a = malloc(sizeof(stacks->a));
+	stacks->b = malloc(sizeof(stacks->b));
+	if (!stacks->a || !stacks->b)
 		error_msg_and_exit();
-	stack->size_a = 0;
-	stack->size_b = 0;
-	return (stack);
+	stacks->a->arr = malloc(sizeof(int *) * count);
+	stacks->b->arr = malloc(sizeof(int *) * count);
+	if (!stacks->a->arr || !stacks->b->arr)
+		error_msg_and_exit();
+	stacks->a->size = 0;
+	stacks->b->size = 0;
+	return (stacks);
 }
 
-static t_array	*fill_array(int count, t_array *stack, char **data)
+static t_stacks	*fill_array(int count, t_stacks *stacks, char **data)
 {
 	int	i;
 	int	j;
 
 	i = 1;
 	j = 0;
-	stack = init_array(stack, count);
+	stacks = init_array(stacks, count);
 	while (i < count)
 	{
-		stack->a[j++] = ft_atoi(data[i++]);
-		stack->size_a++;
+		stacks->a->arr[j++] = ft_atoi(data[i++]);
+		stacks->a->size++;
 	}
-	return (stack);
+	return (stacks);
 }
 
 int	main(int argc, char **argv)
 {
-	t_array	*stack;
+	t_stacks	*stacks;
 
-	stack = NULL;
+	stacks = NULL;
 	validate_arg(argc, argv);
-	stack = fill_array(argc, stack, argv);
-	print_stack(stack);
-	sorting(stack);
+	stacks = fill_array(argc, stacks, argv);
+	print_stack(stacks);
+	sorting(stacks);
 	printf("--------------------------------------------\n");
-	print_stack(stack);
-	printf("size a- %d\n", stack->size_a);
-	printf("size b- %d\n", stack->size_b);
+	print_stack(stacks);
 	return (0);
 }

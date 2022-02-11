@@ -6,7 +6,7 @@
 /*   By: jharras <jharras@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 12:53:24 by jharras           #+#    #+#             */
-/*   Updated: 2022/02/10 14:23:00 by jharras          ###   ########.fr       */
+/*   Updated: 2022/02/11 17:10:22 by jharras          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,26 +41,18 @@ static void	move_stack(int *array, int *size)
 	(*size)--;
 }
 
-void	pa(t_array *stack, int flag_write)
+void	pa(t_stacks *stacks)
 {
-	int	i;
-
-	i = 0;
-	free_space(stack->a, &stack->size_a);
-	stack->a[0] = stack->b[0];
-	move_stack(stack->b, &stack->size_b);
-	if (flag_write)
-		write(1, "pa\n", 3);
+	free_space(stacks->a->arr, &stacks->a->size);
+	stacks->a->arr[0] = stacks->b->arr[0];
+	move_stack(stacks->b->arr, &stacks->b->size);
+	write(1, "pa\n", 3);
 }
 
-void	pb(t_array *stack, int flag_write)
+void	pb(t_stacks *stacks)
 {
-	int	i;
-
-	i = 0;
-	free_space(stack->b, &stack->size_b);
-	stack->b[0] = stack->a[0];
-	move_stack(stack->a, &stack->size_a);
-	if (flag_write)
-		write(1, "pb\n", 3);
+	free_space(stacks->b->arr, &stacks->b->size);
+	stacks->b->arr[0] = stacks->a->arr[0];
+	move_stack(stacks->a->arr, &stacks->a->size);
+	write(1, "pb\n", 3);
 }

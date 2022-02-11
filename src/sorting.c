@@ -6,59 +6,53 @@
 /*   By: jharras <jharras@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 13:55:28 by jharras           #+#    #+#             */
-/*   Updated: 2022/02/10 14:49:02 by jharras          ###   ########.fr       */
+/*   Updated: 2022/02/11 17:09:35 by jharras          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	three_sort(t_array *stack)
+static void	three_sort(t_stacks *stacks)
 {
 	int	i;
 
 	i = 0;
-	if (stack->a[i] > stack->a[i + 1] && stack->a[i] > stack->a[i + 2])
+	if (stacks->a->arr[i] > stacks->a->arr[i + 1] &&
+		stacks->a->arr[i] > stacks->a->arr[i + 2])
 	{
-		ra(stack, 1);
-		if (check_sort(stack->a, stack->size_a))
+		ra(stacks->a, 1);
+		if (check_sort(stacks->a))
 			return ;
-		sa(stack, 1);
+		sa(stacks->a, 1);
 		return ;
 	}
-	if (stack->a[i] < stack->a[i + 1] && stack->a[i] > stack->a[i + 2])
+	if (stacks->a->arr[i] < stacks->a->arr[i + 1] &&
+		stacks->a->arr[i] > stacks->a->arr[i + 2])
 	{
-		rra(stack, 1);
+		rra(stacks->a, 1);
 		return ;
 	}
-	if (stack->a[i] > stack->a[i + 1] && stack->a[i] < stack->a[i + 2])
+	if (stacks->a->arr[i] > stacks->a->arr[i + 1] &&
+		stacks->a->arr[i] < stacks->a->arr[i + 2])
 	{
-		sa(stack, 1);
+		sa(stacks->a, 1);
 		return ;
 	}
-	rra(stack, 1);
-	sa(stack, 1);
+	rra(stacks->a, 1);
+	sa(stacks->a, 1);
 }
 
-static void	six_sort(t_array *stack)
+static void	six_sort(t_stacks *stacks)
 {
-	while (stack->size_a > 3)
-		pb(stack, 1);
-	if (!check_sort(stack->a, stack->size_a))
-		three_sort(stack);
-	while (stack->size_b >= 0)
-	{
-		if (stack->a[0] > stack->b[0])
-			pa(stack, 1);
-		ra(stack, 1);
-	}
+	pb(stacks);
 }
 
-void	sorting(t_array *stack)
+void	sorting(t_stacks *stacks)
 {
-	if (stack->size_a == 2)
-		sa(stack, 1);
-	else if (stack->size_a == 3)
-		three_sort(stack);
-	else if (stack->size_a <= 6)
-		six_sort(stack);
+	if (stacks->a->size == 2)
+		sa(stacks->a, 1);
+	else if (stacks->a->size == 3)
+		three_sort(stacks);
+	else if (stacks->a->size <= 6)
+		six_sort(stacks);
 }

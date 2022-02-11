@@ -6,7 +6,7 @@
 /*   By: jharras <jharras@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 15:37:22 by jharras           #+#    #+#             */
-/*   Updated: 2022/02/09 15:48:01 by jharras          ###   ########.fr       */
+/*   Updated: 2022/02/11 16:59:09 by jharras          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,13 @@ void	rra(t_array *stack, int flag_write)
 	int	i;
 
 	i = 1;
-	tmp = stack->a[stack->size_a - 1];
-	while (i < stack->size_a)
+	tmp = stack->arr[stack->size - 1];
+	while (i < stack->size)
 	{
-		stack->a[i] = stack->a[i - 1];
+		stack->arr[i] = stack->arr[i - 1];
 		i++;
 	}
-	stack->a[0] = tmp;
+	stack->arr[0] = tmp;
 	if (flag_write == 1)
 		write(1, "rra\n", 4);
 }
@@ -35,13 +35,13 @@ void	rrb(t_array *stack, int flag_write)
 	int	i;
 
 	i = 1;
-	tmp = stack->b[stack->size_b - 1];
-	while (i < stack->size_b)
+	tmp = stack->arr[stack->size - 1];
+	while (i < stack->size)
 	{
-		stack->b[i] = stack->b[i - 1];
+		stack->arr[i] = stack->arr[i - 1];
 		i++;
 	}
-	stack->b[0] = tmp;
+	stack->arr[0] = tmp;
 	if (flag_write == 1)
 		write(1, "rrb\n", 4);
 }
