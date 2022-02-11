@@ -6,7 +6,7 @@
 /*   By: jharras <jharras@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 14:50:08 by jharras           #+#    #+#             */
-/*   Updated: 2022/02/11 16:49:25 by jharras          ###   ########.fr       */
+/*   Updated: 2022/02/11 18:39:14 by jharras          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,4 +24,27 @@ int	check_sort(t_array *stack)
 		i++;
 	}
 	return (1);
+}
+void	find_min(t_array *stack)
+{
+	int	i;
+
+	i = 0;
+	stack->min = stack->arr[0];
+	while (i < stack->size)
+	{
+		if (stack->min > stack->arr[i])
+			stack->min = stack->arr[i];
+		i++;
+	}
+}
+
+int	get_index(t_array *stack, int digit)
+{
+	int	i;
+	
+	i = 0;
+	while (stack->arr[i] != digit)
+		i++;
+	return (i);
 }

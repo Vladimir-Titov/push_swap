@@ -6,24 +6,24 @@
 /*   By: jharras <jharras@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 13:37:29 by jharras           #+#    #+#             */
-/*   Updated: 2022/02/11 17:08:38 by jharras          ###   ########.fr       */
+/*   Updated: 2022/02/11 21:11:33 by jharras          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	print_stack(t_stacks *stacks)
-{
-	int	i;
+// static void	print_stack(t_array *stack , char *name)
+// {
+// 	int	i;
 
-	i = 0;
-	while (i < stacks->a->size || i < stacks->b->size)
-	{
-		printf("%d			%d\n", stacks->a->arr[i], stacks->b->arr[i]);
-		i++;
-	}
-	printf("\na			b\n");
-}
+// 	i = 0;
+// 	while (i < stack->size)
+// 	{
+// 		printf("%d\n", stack->arr[i]);
+// 		i++;
+// 	}
+// 	printf("_\n%s\n\n", name);
+// }
 
 static t_stacks	*init_array(t_stacks *stacks, int count)
 {
@@ -51,10 +51,15 @@ static t_stacks	*fill_array(int count, t_stacks *stacks, char **data)
 	i = 1;
 	j = 0;
 	stacks = init_array(stacks, count);
+	stacks->a->min = ft_atoi(data[1]);
 	while (i < count)
 	{
-		stacks->a->arr[j++] = ft_atoi(data[i++]);
+		stacks->a->arr[j] = ft_atoi(data[i]);
+		if (stacks->a->min > stacks->a->arr[j])
+			stacks->a->min = stacks->a->arr[j];
 		stacks->a->size++;
+		i++;
+		j++;
 	}
 	return (stacks);
 }
@@ -66,9 +71,6 @@ int	main(int argc, char **argv)
 	stacks = NULL;
 	validate_arg(argc, argv);
 	stacks = fill_array(argc, stacks, argv);
-	print_stack(stacks);
 	sorting(stacks);
-	printf("--------------------------------------------\n");
-	print_stack(stacks);
-	return (0);
+	exit(0);
 }

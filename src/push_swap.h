@@ -6,7 +6,7 @@
 /*   By: jharras <jharras@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 13:37:04 by jharras           #+#    #+#             */
-/*   Updated: 2022/02/11 17:10:34 by jharras          ###   ########.fr       */
+/*   Updated: 2022/02/11 18:36:21 by jharras          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ typedef struct s_stacks {
 typedef struct	s_array {
 	int	*arr;
 	int	size;
+	int	min;
 }		t_array;
 
 void	error_msg_and_exit(void);
@@ -44,4 +45,6 @@ void	rrb(t_array *stack, int flag_write);
 void	rrr(t_array *stack);
 void	pa(t_stacks *stack);
 void	pb(t_stacks *stack);
+int		get_index(t_array *stack, int digit);
+void	find_min(t_array *stack);
 #endif

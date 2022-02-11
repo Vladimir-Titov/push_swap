@@ -6,7 +6,7 @@
 /*   By: jharras <jharras@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 13:55:28 by jharras           #+#    #+#             */
-/*   Updated: 2022/02/11 17:09:35 by jharras          ###   ########.fr       */
+/*   Updated: 2022/02/11 21:10:55 by jharras          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,36 @@ static void	three_sort(t_stacks *stacks)
 
 static void	six_sort(t_stacks *stacks)
 {
-	pb(stacks);
+	int	index_min;
+	int	middle;
+
+	while (stacks->a->size > 3)
+	{
+		index_min = get_index(stacks->a, stacks->a->min);
+		middle = (stacks->a->size) / 2;
+		if (index_min <= middle)
+		{
+			while (index_min != 0)
+			{
+				ra(stacks->a, 1);
+				index_min = get_index(stacks->a, stacks->a->min);
+			}
+		}
+		else
+		{
+			while (index_min != 0)
+			{
+				rra(stacks->a, 1);
+				index_min = get_index(stacks->a, stacks->a->min);
+			}
+		}
+		pb(stacks);
+		find_min(stacks->a);
+	}
+	if (!check_sort(stacks->a))
+		three_sort(stacks);
+	while (stacks->b->size > 0)
+		pa(stacks);
 }
 
 void	sorting(t_stacks *stacks)
@@ -53,6 +82,6 @@ void	sorting(t_stacks *stacks)
 		sa(stacks->a, 1);
 	else if (stacks->a->size == 3)
 		three_sort(stacks);
-	else if (stacks->a->size <= 6)
+	else if (stacks->a->size > 3)
 		six_sort(stacks);
 }
