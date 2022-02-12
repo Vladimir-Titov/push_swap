@@ -6,7 +6,7 @@
 /*   By: jharras <jharras@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 13:37:29 by jharras           #+#    #+#             */
-/*   Updated: 2022/02/11 21:11:33 by jharras          ###   ########.fr       */
+/*   Updated: 2022/02/12 12:35:26 by jharras          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,14 +32,17 @@ static t_stacks	*init_array(t_stacks *stacks, int count)
 		error_msg_and_exit();
 	stacks->a = malloc(sizeof(stacks->a));
 	stacks->b = malloc(sizeof(stacks->b));
-	if (!stacks->a || !stacks->b)
+	stacks->tmp = malloc(sizeof(stacks->tmp));
+	if (!stacks->a || !stacks->b || !stacks->tmp)
 		error_msg_and_exit();
 	stacks->a->arr = malloc(sizeof(int *) * count);
 	stacks->b->arr = malloc(sizeof(int *) * count);
-	if (!stacks->a->arr || !stacks->b->arr)
+	stacks->tmp->arr = malloc(sizeof(int *) * count);
+	if (!stacks->a->arr || !stacks->b->arr || !stacks->tmp->arr)
 		error_msg_and_exit();
 	stacks->a->size = 0;
 	stacks->b->size = 0;
+	stacks->tmp->size = 0;
 	return (stacks);
 }
 

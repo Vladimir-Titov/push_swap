@@ -6,7 +6,7 @@
 /*   By: jharras <jharras@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 13:37:04 by jharras           #+#    #+#             */
-/*   Updated: 2022/02/11 18:36:21 by jharras          ###   ########.fr       */
+/*   Updated: 2022/02/12 12:34:02 by jharras          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 typedef struct s_stacks {
 	struct s_array *a;
 	struct s_array *b;
+	struct s_array *tmp;
 }		t_stacks;
 
 typedef struct	s_array {
