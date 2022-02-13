@@ -6,7 +6,7 @@
 #    By: jharras <jharras@student.21-school.ru>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/09 13:36:08 by jharras           #+#    #+#              #
-#    Updated: 2022/02/11 21:21:04 by jharras          ###   ########.fr        #
+#    Updated: 2022/02/13 17:47:29 by jharras          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ NAME		= push_swap
 SRC		= 	push_swap.c	error.c	validate.c \
 			utils.c	sorting.c	sort_utils.c \
 			swap.c	rotate.c	reverse_rotate.c \
-			push.c
+			push.c	quick_sort.c	middle_sort.c \
 
 SRCS	= $(addprefix src/, $(SRC))
 

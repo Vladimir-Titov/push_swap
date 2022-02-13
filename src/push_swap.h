@@ -6,7 +6,7 @@
 /*   By: jharras <jharras@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 13:37:04 by jharras           #+#    #+#             */
-/*   Updated: 2022/02/12 12:34:02 by jharras          ###   ########.fr       */
+/*   Updated: 2022/02/13 17:48:07 by jharras          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,11 @@
 # include <limits.h>
 
 typedef struct s_stacks {
-	struct s_array *a;
-	struct s_array *b;
-	struct s_array *tmp;
+	struct s_array	*a;
+	struct s_array	*b;
 }		t_stacks;
 
-typedef struct	s_array {
+typedef struct s_array {
 	int	*arr;
 	int	size;
 	int	min;
@@ -48,4 +47,6 @@ void	pa(t_stacks *stack);
 void	pb(t_stacks *stack);
 int		get_index(t_array *stack, int digit);
 void	find_min(t_array *stack);
+void	quick_sort(int *array, int low, int high);
+void	middle_sort(t_stacks *stacks);
 #endif
