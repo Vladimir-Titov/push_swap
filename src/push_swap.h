@@ -6,7 +6,7 @@
 /*   By: jharras <jharras@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 13:37:04 by jharras           #+#    #+#             */
-/*   Updated: 2022/02/13 17:48:07 by jharras          ###   ########.fr       */
+/*   Updated: 2022/02/14 18:45:06 by jharras          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,5 +48,8 @@ void	pb(t_stacks *stack);
 int		get_index(t_array *stack, int digit);
 void	find_min(t_array *stack);
 void	quick_sort(int *array, int low, int high);
-void	middle_sort(t_stacks *stacks);
+void	middle_sort(t_stacks *stacks, int k);
+int		find_less(t_array *stack, int less);
+int		get_digit_less(t_array *stack, int less);
+int		find_max(t_array *stack);
 #endif

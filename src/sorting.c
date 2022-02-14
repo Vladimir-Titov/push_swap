@@ -6,7 +6,7 @@
 /*   By: jharras <jharras@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 13:55:28 by jharras           #+#    #+#             */
-/*   Updated: 2022/02/13 18:07:54 by jharras          ###   ########.fr       */
+/*   Updated: 2022/02/14 18:52:28 by jharras          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ static void	small_sort(t_stacks *stacks)
 {
 	int	index_min;
 	int	middle;
-
+	
 	while (stacks->a->size > 3)
 	{
 		index_min = get_index(stacks->a, stacks->a->min);
@@ -58,7 +58,7 @@ static void	small_sort(t_stacks *stacks)
 		}
 		else
 		{
-			while (index_min-- > 0)
+			while (index_min++ < stacks->a->size)
 				rra(stacks->a, 1);
 		}
 		pb(stacks);
@@ -76,8 +76,10 @@ void	sorting(t_stacks *stacks)
 		sa(stacks->a, 1);
 	else if (stacks->a->size == 3)
 		three_sort(stacks);
-	else if (stacks->a->size > 3 && stacks->a->size < 10)
+	else if (stacks->a->size > 3 && stacks->a->size <= 10)
 		small_sort(stacks);
-	else if (stacks->a->size > 10 && stacks->a->size < 100)
-		middle_sort(stacks);
+	else if (stacks->a->size > 10 && stacks->a->size <= 100)
+		middle_sort(stacks, 4);
+	else if (stacks->a->size > 100)
+		middle_sort(stacks, 8);
 }
