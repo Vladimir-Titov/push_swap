@@ -6,7 +6,7 @@
 /*   By: jharras <jharras@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 17:55:42 by jharras           #+#    #+#             */
-/*   Updated: 2022/02/14 18:30:07 by jharras          ###   ########.fr       */
+/*   Updated: 2022/02/14 21:18:11 by jharras          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	find_less(t_array *stack, int less)
 	i = 0;
 	while (i < stack->size)
 	{
-		if (stack->arr[i] < less)
+		if (stack->arr[i] <= less)
 			return (1);
 		i++;
 	}
@@ -33,7 +33,7 @@ int	get_digit_less(t_array *stack, int less)
 	i = 0;
 	while (i < stack->size)
 	{
-		if (stack->arr[i] < less)
+		if (stack->arr[i] <= less)
 			return (stack->arr[i]);
 		i++;
 	}

@@ -6,7 +6,7 @@
 /*   By: jharras <jharras@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 13:55:28 by jharras           #+#    #+#             */
-/*   Updated: 2022/02/14 18:52:28 by jharras          ###   ########.fr       */
+/*   Updated: 2022/02/16 17:48:33 by jharras          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,10 +76,9 @@ void	sorting(t_stacks *stacks)
 		sa(stacks->a, 1);
 	else if (stacks->a->size == 3)
 		three_sort(stacks);
-	else if (stacks->a->size > 3 && stacks->a->size <= 10)
+	else if (stacks->a->size > 3 && stacks->a->size < 12)
 		small_sort(stacks);
-	else if (stacks->a->size > 10 && stacks->a->size <= 100)
-		middle_sort(stacks, 4);
-	else if (stacks->a->size > 100)
-		middle_sort(stacks, 8);
+	else if (stacks->a->size => 12)
+		middle_sort(stacks);
+
 }

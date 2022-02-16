@@ -6,7 +6,7 @@
 /*   By: jharras <jharras@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 14:58:08 by jharras           #+#    #+#             */
-/*   Updated: 2022/02/11 16:56:41 by jharras          ###   ########.fr       */
+/*   Updated: 2022/02/15 16:19:39 by jharras          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	sb(t_array *stack, int flag_write)
 	tmp = stack->arr[0];
 	stack->arr[0] = stack->arr[1];
 	stack->arr[1] = tmp;
-	if (flag_write == 0)
+	if (flag_write == 1)
 		write(1, "sb\n", 3);
 }
 

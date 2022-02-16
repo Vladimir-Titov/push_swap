@@ -6,7 +6,7 @@
 /*   By: jharras <jharras@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 17:40:31 by jharras           #+#    #+#             */
-/*   Updated: 2022/02/14 18:45:22 by jharras          ###   ########.fr       */
+/*   Updated: 2022/02/16 17:43:41 by jharras          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ static void	arr_cpy(int *dest, int *src, int size)
 	}
 }
 
-static void	check_and_swap(t_stacks *stacks, int key)
+static int	check_and_swap(t_stacks *stacks, int key)
 {
 	int	middle;
 	int	index_key;
@@ -70,6 +70,7 @@ static void	check_and_swap(t_stacks *stacks, int key)
 		pb(stacks);
 		i++;
 	}
+	return (-1);
 }
 
 static void	end_sort(t_stacks *stacks)
@@ -98,20 +99,46 @@ static void	end_sort(t_stacks *stacks)
 	}
 }
 
-void	middle_sort(t_stacks *stacks, int k)
+int	val_aprox(float m)
+{
+	int	k;
+
+	k = (int) m;
+	if ((m - k) >= 0.5)
+		return ((int) m + 1);
+	else
+		return ((int) m);
+}
+
+int	get_key(t_array *tmp)
+{
+	int	i;
+	quick_sort(tmp->arr, 0, tmp->size - 1);
+	if (tmp->size <= 12)
+		i = val_aprox(tmp->size / 2);
+	else if (tmp->size > 12 && tmp->size < 200)
+		i = val_aprox(tmp->size / 4);
+	else if (tmp->size >= 200)
+		i = val_aprox(tmp->size / 8);
+	return (tmp->arr[i]);
+}
+
+void	middle_sort(t_stacks *stacks)
 {
 	t_array	*tmp;
 	int	key;
+	int	size;
 
+	size = stacks->a->size;
 	tmp = NULL;
-	tmp = init_tmp(tmp, stacks->a->size);
-	arr_cpy(tmp->arr, stacks->a->arr, tmp->size);
-	quick_sort(tmp->arr, 0, tmp->size - 1);
-	while (k > 1)
+	while (stacks->a->size >= val_aprox(size / 4))
 	{
-		key = tmp->arr[tmp->size / k];
-		check_and_swap(stacks, key);
-		k--;
+		tmp = init_tmp(tmp, stacks->a->size);
+		arr_cpy(tmp->arr, stacks->a->arr, tmp->size);
+		key = get_key(tmp);
+		while (check_and_swap(stacks, key) != -1)
+			continue ;
+		free(tmp);
 	}
 	while (stacks->a->size > 0)
 		pb(stacks);
