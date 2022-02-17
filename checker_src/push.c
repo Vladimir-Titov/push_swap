@@ -6,11 +6,11 @@
 /*   By: jharras <jharras@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 12:53:24 by jharras           #+#    #+#             */
-/*   Updated: 2022/02/17 14:56:50 by jharras          ###   ########.fr       */
+/*   Updated: 2022/02/17 15:48:08 by jharras          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "checker.h"
 
 static void	free_space(int *array, int *size)
 {

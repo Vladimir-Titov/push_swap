@@ -6,11 +6,11 @@
 /*   By: jharras <jharras@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 13:55:28 by jharras           #+#    #+#             */
-/*   Updated: 2022/02/17 14:57:29 by jharras          ###   ########.fr       */
+/*   Updated: 2022/02/17 15:48:47 by jharras          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "checker.h"
 
 static void	three_sort(t_stacks *stacks)
 {

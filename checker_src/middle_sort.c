@@ -6,11 +6,11 @@
 /*   By: jharras <jharras@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 17:40:31 by jharras           #+#    #+#             */
-/*   Updated: 2022/02/17 15:03:54 by jharras          ###   ########.fr       */
+/*   Updated: 2022/02/17 15:48:03 by jharras          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "checker.h"
 
 static t_array	*init_tmp(t_array *tmp, int size)
 {

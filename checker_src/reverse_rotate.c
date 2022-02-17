@@ -6,11 +6,11 @@
 /*   By: jharras <jharras@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 15:37:22 by jharras           #+#    #+#             */
-/*   Updated: 2022/02/17 15:07:24 by jharras          ###   ########.fr       */
+/*   Updated: 2022/02/17 15:48:31 by jharras          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "checker.h"
 
 void	rra(t_array *stack, int flag_write)
 {

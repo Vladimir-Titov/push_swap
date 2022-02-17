@@ -1,20 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker.c                                          :+:      :+:    :+:   */
+/*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jharras <jharras@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/16 17:54:27 by jharras           #+#    #+#             */
-/*   Updated: 2022/02/17 13:39:12 by jharras          ###   ########.fr       */
+/*   Created: 2022/02/09 13:36:37 by jharras           #+#    #+#             */
+/*   Updated: 2022/02/17 15:47:59 by jharras          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
 
-int	main(int argc, char **argv)
+void	error_msg_and_exit(void)
 {
-	(void) argc;
-	(void) argv;
-	return (0);
+	write(1, "Error\n", 6);
+	exit(1);
 }
