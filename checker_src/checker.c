@@ -6,7 +6,7 @@
 /*   By: jharras <jharras@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 17:54:27 by jharras           #+#    #+#             */
-/*   Updated: 2022/02/17 15:59:56 by jharras          ###   ########.fr       */
+/*   Updated: 2022/02/17 18:47:55 by jharras          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ static void	execute(char *command, t_stacks *stacks)
 
 static int	checking(t_stacks *stacks)
 {
-	char	commands[4];
+	char	commands[5];
 	int		i;
 
 	i = 0;
@@ -51,20 +51,18 @@ static int	checking(t_stacks *stacks)
 		if (commands[i] == '\n')
 		{
 			execute(commands, stacks);
-			commands[0] = 0;
+			ft_memset(commands);
 			i = 0;
 			continue ;
 		}
 		i++;
 	}
-	if (check_sort(stacks->a) != 1 || stacks->b->size > 0)
+	if (check_sort(stacks->a) != 1 || stacks->b->size != 0)
 		write(1, "KO\n", 3);
 	else
 		write(1, "OK\n", 3);
 	exit(0);
-	
 }
-
 
 int	main(int argc, char **argv)
 {

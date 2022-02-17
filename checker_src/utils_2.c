@@ -6,7 +6,7 @@
 /*   By: jharras <jharras@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 13:38:16 by jharras           #+#    #+#             */
-/*   Updated: 2022/02/17 15:47:51 by jharras          ###   ########.fr       */
+/*   Updated: 2022/02/17 18:47:03 by jharras          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,8 +71,16 @@ int	ft_atoi(char *str)
 	return (res * negative);
 }
 
-void	free_stack(t_array *stack)
+int	check_sort(t_array *stack)
 {
-	free(stack->arr);
-	free(stack);
+	int	i;
+
+	i = 0;
+	while (i + 1 < stack->size)
+	{
+		if (stack->arr[i] > stack->arr[i + 1])
+			return (0);
+		i++;
+	}
+	return (1);
 }

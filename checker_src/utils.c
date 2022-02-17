@@ -6,7 +6,7 @@
 /*   By: jharras <jharras@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 14:32:41 by jharras           #+#    #+#             */
-/*   Updated: 2022/02/17 15:47:07 by jharras          ###   ########.fr       */
+/*   Updated: 2022/02/17 18:35:46 by jharras          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,21 @@
 
 void	ft_memset(char *str)
 {
-	int	i;
-
-	i = 0;
-	while (str[i])
-		str[i] = '\0';
+	while (*str)
+	{	
+		*str = '\0';
+		str++;
+	}
 }
 
 int	ft_strcmp(char *str1, char *str2)
 {
 	while (*str1 && *str2)
 	{
-		if (*str1 - *str2 != 0)
+		if (*str1 != *str2)
 			return (-1);
 		str1++;
 		str2++;
-		return (0);
 	}
 	return (0);
 }
