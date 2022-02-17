@@ -6,7 +6,7 @@
 /*   By: jharras <jharras@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 13:55:28 by jharras           #+#    #+#             */
-/*   Updated: 2022/02/16 17:48:33 by jharras          ###   ########.fr       */
+/*   Updated: 2022/02/17 13:46:57 by jharras          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,27 +17,22 @@ static void	three_sort(t_stacks *stacks)
 	int	i;
 
 	i = 0;
-	if (stacks->a->arr[i] > stacks->a->arr[i + 1] &&
-		stacks->a->arr[i] > stacks->a->arr[i + 2])
+	if (stacks->a->arr[i] > stacks->a->arr[i + 1]
+		&& stacks->a->arr[i] > stacks->a->arr[i + 2])
 	{
 		ra(stacks->a, 1);
 		if (check_sort(stacks->a))
 			return ;
 		sa(stacks->a, 1);
-		return ;
 	}
-	if (stacks->a->arr[i] < stacks->a->arr[i + 1] &&
-		stacks->a->arr[i] > stacks->a->arr[i + 2])
-	{
+	if (stacks->a->arr[i] < stacks->a->arr[i + 1]
+		&& stacks->a->arr[i] > stacks->a->arr[i + 2])
 		rra(stacks->a, 1);
-		return ;
-	}
-	if (stacks->a->arr[i] > stacks->a->arr[i + 1] &&
-		stacks->a->arr[i] < stacks->a->arr[i + 2])
-	{
+	if (stacks->a->arr[i] > stacks->a->arr[i + 1]
+		&& stacks->a->arr[i] < stacks->a->arr[i + 2])
 		sa(stacks->a, 1);
+	if (check_sort(stacks->a))
 		return ;
-	}
 	rra(stacks->a, 1);
 	sa(stacks->a, 1);
 }
@@ -46,7 +41,7 @@ static void	small_sort(t_stacks *stacks)
 {
 	int	index_min;
 	int	middle;
-	
+
 	while (stacks->a->size > 3)
 	{
 		index_min = get_index(stacks->a, stacks->a->min);
@@ -78,7 +73,6 @@ void	sorting(t_stacks *stacks)
 		three_sort(stacks);
 	else if (stacks->a->size > 3 && stacks->a->size < 12)
 		small_sort(stacks);
-	else if (stacks->a->size => 12)
+	else if (stacks->a->size >= 12)
 		middle_sort(stacks);
-
 }

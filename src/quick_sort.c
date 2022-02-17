@@ -6,7 +6,7 @@
 /*   By: jharras <jharras@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 15:45:29 by jharras           #+#    #+#             */
-/*   Updated: 2022/02/13 16:03:56 by jharras          ###   ########.fr       */
+/*   Updated: 2022/02/17 13:40:53 by jharras          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	swap(int *a, int *b)
 {
-	int tmp;
+	int	tmp;
 
 	tmp = *a;
 	*a = *b;
@@ -25,7 +25,7 @@ static int	partition(int *array, int low, int high)
 {
 	int	pivot;
 	int	i;
-	int j;
+	int	j;
 
 	pivot = array[high];
 	i = (low - 1);

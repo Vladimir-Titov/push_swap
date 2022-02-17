@@ -6,21 +6,13 @@
 /*   By: jharras <jharras@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 17:40:31 by jharras           #+#    #+#             */
-/*   Updated: 2022/02/16 17:43:41 by jharras          ###   ########.fr       */
+/*   Updated: 2022/02/17 13:53:09 by jharras          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// static void printArray(int *array, int size)
-// {
-//   for (int i = 0; i < size; i++) {
-//     printf("%d  ", array[i]);
-//   }
-//   printf("\n");
-// }
-
-static t_array *init_tmp(t_array *tmp, int size)
+static t_array	*init_tmp(t_array *tmp, int size)
 {
 	tmp = (t_array *)malloc(sizeof(t_array));
 	if (!tmp)
@@ -99,35 +91,11 @@ static void	end_sort(t_stacks *stacks)
 	}
 }
 
-int	val_aprox(float m)
-{
-	int	k;
-
-	k = (int) m;
-	if ((m - k) >= 0.5)
-		return ((int) m + 1);
-	else
-		return ((int) m);
-}
-
-int	get_key(t_array *tmp)
-{
-	int	i;
-	quick_sort(tmp->arr, 0, tmp->size - 1);
-	if (tmp->size <= 12)
-		i = val_aprox(tmp->size / 2);
-	else if (tmp->size > 12 && tmp->size < 200)
-		i = val_aprox(tmp->size / 4);
-	else if (tmp->size >= 200)
-		i = val_aprox(tmp->size / 8);
-	return (tmp->arr[i]);
-}
-
 void	middle_sort(t_stacks *stacks)
 {
 	t_array	*tmp;
-	int	key;
-	int	size;
+	int		key;
+	int		size;
 
 	size = stacks->a->size;
 	tmp = NULL;
@@ -138,7 +106,7 @@ void	middle_sort(t_stacks *stacks)
 		key = get_key(tmp);
 		while (check_and_swap(stacks, key) != -1)
 			continue ;
-		free(tmp);
+		free_stack(tmp);
 	}
 	while (stacks->a->size > 0)
 		pb(stacks);

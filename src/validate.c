@@ -6,7 +6,7 @@
 /*   By: jharras <jharras@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 13:38:39 by jharras           #+#    #+#             */
-/*   Updated: 2022/02/09 13:40:45 by jharras          ###   ########.fr       */
+/*   Updated: 2022/02/17 13:42:20 by jharras          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,18 @@
 static void	a_is_sorted(int count, char **argv)
 {
 	int	i;
-	
+
 	i = 1;
 	while (i + 1 < count)
 	{
 		if (ft_atoi(argv[i]) > ft_atoi(argv[i + 1]))
 			return ;
-		i++;	
+		i++;
 	}
 	exit(0);
 }
 
-static void have_duplicate(int count, char **argv)
+static void	have_duplicate(int count, char **argv)
 {
 	int	i;
 	int	j;

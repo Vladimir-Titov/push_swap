@@ -6,7 +6,7 @@
 #    By: jharras <jharras@student.21-school.ru>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/09 13:36:08 by jharras           #+#    #+#              #
-#    Updated: 2022/02/16 18:06:01 by jharras          ###   ########.fr        #
+#    Updated: 2022/02/17 13:25:53 by jharras          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,10 +29,10 @@ CFLAGS		= -Wall -Werror -Wextra
 all			: $(NAME)
 
 $(NAME)		: $(OBJ)
-			gcc -o $(NAME) $(CFLAGS) $(OBJ)
+			gcc -o $(NAME) $(CFLAGS) -I includes/ $(OBJ)
 
 %.o : %.c
-		gcc -c $(CFLAGS) $< -o $@
+		gcc -c $(CFLAGS) -I includes/ $< -o $@
 		
 clean:
 		rm -f $(OBJ)

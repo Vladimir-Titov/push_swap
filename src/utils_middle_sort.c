@@ -6,7 +6,7 @@
 /*   By: jharras <jharras@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 17:55:42 by jharras           #+#    #+#             */
-/*   Updated: 2022/02/14 21:18:11 by jharras          ###   ########.fr       */
+/*   Updated: 2022/02/17 13:43:07 by jharras          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,4 +54,30 @@ int	find_max(t_array *stack)
 		i++;
 	}
 	return (max);
+}
+
+int	val_aprox(float m)
+{
+	int	k;
+
+	k = (int) m;
+	if ((m - k) >= 0.5)
+		return ((int) m + 1);
+	else
+		return ((int) m);
+}
+
+int	get_key(t_array *tmp)
+{
+	int	i;
+
+	i = -1;
+	quick_sort(tmp->arr, 0, tmp->size - 1);
+	if (tmp->size <= 12)
+		i = val_aprox(tmp->size / 2);
+	else if (tmp->size > 12 && tmp->size < 200)
+		i = val_aprox(tmp->size / 4);
+	else
+		i = val_aprox(tmp->size / 8);
+	return (tmp->arr[i]);
 }

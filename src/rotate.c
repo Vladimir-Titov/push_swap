@@ -6,7 +6,7 @@
 /*   By: jharras <jharras@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 15:05:03 by jharras           #+#    #+#             */
-/*   Updated: 2022/02/11 16:58:19 by jharras          ###   ########.fr       */
+/*   Updated: 2022/02/17 13:41:13 by jharras          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	rb(t_array *stack, int flag_write)
 	tmp = stack->arr[0];
 	while (i < stack->size)
 	{
-	 stack->arr[i - 1] = stack->arr[i];
+	stack->arr[i - 1] = stack->arr[i];
 		i++;
 	}
 	stack->arr[i - 1] = tmp;

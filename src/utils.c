@@ -6,7 +6,7 @@
 /*   By: jharras <jharras@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 13:38:16 by jharras           #+#    #+#             */
-/*   Updated: 2022/02/13 17:38:50 by jharras          ###   ########.fr       */
+/*   Updated: 2022/02/17 13:52:35 by jharras          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,4 +69,10 @@ int	ft_atoi(char *str)
 		++str;
 	}
 	return (res * negative);
+}
+
+void	free_stack(t_array *stack)
+{
+	free(stack->arr);
+	free(stack);
 }
